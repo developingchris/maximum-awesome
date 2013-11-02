@@ -1,29 +1,24 @@
-set nocursorline " don't highlight current line
-
+" set nocursorline " don't highlight current line
 " keyboard shortcuts
-inoremap jj <ESC>
 
-" gui settings
-if (&t_Co == 256 || has('gui_running'))
-  if ($TERM_PROGRAM == 'iTerm.app')
-    colorscheme solarized
-  else
-    colorscheme desert
-  endif
-endif
+nnoremap <silent> <leader>w <C-w><C-w>
+nmap <leader>c<space> <Plug>CommentaryLine
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
+nnoremap <leader><leader> <c-^>
 
-" Disambiguate ,a & ,t from the Align plugin, making them fast again.
-"
-" This section is here to prevent AlignMaps from adding a bunch of mappings
-" that interfere with the very-common ,a and ,t mappings. This will get run
-" at every startup to remove the AlignMaps for the *next* vim startup.
-"
-" If you do want the AlignMaps mappings, remove this section, remove
-" ~/.vim/bundle/Align, and re-run rake in maximum-awesome.
-function! s:RemoveConflictingAlignMaps()
-  if exists("g:loaded_AlignMapsPlugin")
-    AlignMapsClean
-  endif
-endfunction
-command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
-silent! autocmd VimEnter * RemoveConflictingAlignMaps
+command! W :w
+
+set incsearch                     " Highlight matches as you type.
+set hlsearch                      " Highlight matches.
+set hidden
+set guifont=Inconsolata:h18
+set antialias                     " MacVim: smooth fonts.
+set encoding=utf-8                " Use UTF-8 everywhere.
+set guioptions-=T                 " Hide toolbar.
+set guioptions-=r                 " Don't show right scrollbar
+set number
+
+colorscheme vividchalk
+
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
