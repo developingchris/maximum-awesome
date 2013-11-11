@@ -7,6 +7,13 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 nnoremap <leader><leader> <c-^>
 
+vnoremap <C-S-j> :m '>+1<CR>gv=gv
+vnoremap <C-S-k> :m '<-2<CR>gv=gv
+
+" compile ruby
+nmap <leader>r :w<CR>:! ruby %<CR>
+nmap <leader>R :w<CR>:! rake<CR>
+
 command! W :w
 
 set incsearch                     " Highlight matches as you type.
