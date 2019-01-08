@@ -100,13 +100,6 @@ namespace :install do
     brew_install 'the_silver_searcher'
   end
 
-  desc 'Install iTerm'
-  task :iterm do
-    step 'iterm2'
-    unless app? 'iTerm'
-      brew_cask_install 'iterm2'
-    end
-  end
 
   desc 'Install ctags'
   task :ctags do
@@ -156,13 +149,9 @@ end
 desc 'Install these config files.'
 task :default do
   Rake::Task['install:brew'].invoke
-  Rake::Task['install:brew_cask'].invoke
   Rake::Task['install:the_silver_searcher'].invoke
-  Rake::Task['install:iterm'].invoke
   Rake::Task['install:ctags'].invoke
   Rake::Task['install:reattach_to_user_namespace'].invoke
-  Rake::Task['install:tmux'].invoke
-  Rake::Task['install:macvim'].invoke
 
   # TODO install gem ctags?
   # TODO run gem ctags?
