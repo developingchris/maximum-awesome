@@ -2,13 +2,15 @@
 " keyboard shortcuts
 
 nnoremap <silent> <leader>w <C-w><C-w>
-nmap <leader>c<space> <Plug>CommentaryLine
+" nmap <leader>c<space> <Plug>CommentaryLine
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <Leader>b :w<CR>!rubocop -ax %<CR>
 map <Leader>rt :!ctags --extra=+f -R *<CR><CR>
 nnoremap <leader><leader> <c-^>
 
 command! W :w
 
+set noswapfile
 set incsearch                     " Highlight matches as you type.
 set hlsearch                      " Highlight matches.
 set hidden

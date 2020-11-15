@@ -56,7 +56,8 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-map <leader>l :Align
+nmap <leader>l :w<CR>:! bundle exec rubocop -ax %<CR>
+nmap <leader>L :w<CR>:! bundle exec rubocop -a %<CR>
 nmap <leader>a :Ack<space>
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>d :NERDTreeToggle<CR>
